@@ -3,3 +3,4 @@ langchain-community
 supabase
 langgraph
 langgraph-cli[inmem]
+pypdf
