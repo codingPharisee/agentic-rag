@@ -1,4 +1,5 @@
 from langchain_community.embeddings.openai import OpenAIEmbeddings
+from langchain_community.embeddings import HuggingFaceEmbeddings
 from langchain_core.documents import Document
 from langchain_community.vectorstores import SupabaseVectorStore
 from supabase.client import *
@@ -13,10 +14,12 @@ TABLE_NAME ="documents"
 
 supabase: Client = create_client(SUPABASE_URL, SUPABASE_KEY)
 
-embeddings = OpenAIEmbeddings(modal="text-embedding-3-small")
-
+#embeddings = OpenAIEmbeddings(model="text-embedding-ada-002")
+embeddings = HuggingFaceEmbeddings(
+    model_name="sentence-transformers/all-MiniLM-L6-v2"
+)
 def add_documents(texts:list[str]):
-    docs= [Document(page_content= text, metadata= {"content_type"}) for text in texts]
+    docs= [Document(page_content= text, metadata= {"content_type":"text"}) for text in texts]
 
     SupabaseVectorStore.from_documents(
         documents= docs,
@@ -27,7 +30,7 @@ def add_documents(texts:list[str]):
     )
 # instance of te database
 def get_vector_store()-> SupabaseVectorStore:
-    return SupabasevectorStore(
+    return SupabaseVectorStore(
         embedding= embeddings,
         client= supabase,
         table_name= TABLE_NAME,

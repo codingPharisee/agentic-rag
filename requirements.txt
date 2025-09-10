@@ -4,3 +4,4 @@ supabase
 langgraph
 langgraph-cli[inmem]
 pypdf
+sentence-transformers
