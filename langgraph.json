@@ -1,1 +1,14 @@
-// configuration file
+
+
+{   "dependencies":[
+        "langchain-openai",
+        "retrieval_graph.py",
+        "vectore_store.py"
+],  
+    "graphs":{
+        "retrieval_graph": "retrieval_graph: graph"
+    },
+
+    "env": "./.env"
+    }
+
