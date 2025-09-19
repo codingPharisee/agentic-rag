@@ -3,7 +3,7 @@ from langchain_community.document_loaders.parsers.pdf import PyPDFParser
 from langchain_core.documents.base import Blob
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 
-blob = Blob.from_path("sample.pdf") #blob- (binary large object)- a data type used to store large amounts of 
+blob = Blob.from_path("e06a35cfcf092ec6dd22670383d9fd12 - Copy.pdf") #blob- (binary large object)- a data type used to store large amounts of 
 #binary data, such as images , audio, video,and other files within a database/system. used to store entire files directly.
 
 parser = PyPDFParser()

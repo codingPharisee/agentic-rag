@@ -28,7 +28,7 @@ def add_documents(texts:list[str]):
         table_name= TABLE_NAME,
         query_name= "match_documents",
     )
-# instance of te database
+# instance of the database
 def get_vector_store()-> SupabaseVectorStore:
     return SupabaseVectorStore(
         embedding= embeddings,
@@ -40,6 +40,8 @@ def get_vector_store()-> SupabaseVectorStore:
 # helper funtion to retrieve the data
 
 def  retrieve(query:str, k: int=2) -> list[str]:
-    vs = vector_store()
+    vs = get_vector_store()
     results = vs.similarity_search(query, k=k, filter= {"content_type":"text"})
     return [doc.page_content for doc in results]
+
+# configure the langgraph.json

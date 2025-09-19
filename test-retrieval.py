@@ -1,5 +1,9 @@
-def y(x) : return print(x)
-    
+from vector_store import retrieve
 
-x = "hellow wonderful people"
-y(x)
+query= input("what is an API: ")
+
+print("query:", query)
+
+results= retrieve(query)
+
+print("results", results)

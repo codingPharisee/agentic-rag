@@ -1,3 +1,11 @@
+''' 
+STEPS
+1. setting the sysstem environment
+2. setting up the supabase vector database
+3. creat documents and loading to vectoer darabase
+4. create the agentic rag
+5. deploy langraph server
+  '''
 '''
 python environment python -m venv env_name
 acivate . envname/scripts/activate
